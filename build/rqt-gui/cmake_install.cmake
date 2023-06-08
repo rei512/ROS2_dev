@@ -1,8 +1,8 @@
-# Install script for directory: /root/ros2_ws/src/rqt-gui
+# Install script for directory: /home/laptopuser/ros2_dev/src/rqt-gui
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/root/ros2_ws/install/rqt-gui")
+  set(CMAKE_INSTALL_PREFIX "/home/laptopuser/ros2_dev/install/rqt-gui")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,11 +43,47 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/rqt-gui")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui/environment" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/pythonpath.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/rqt-gui")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui/environment" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/pythonpath.dsv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/rqt-gui-0.0.0-py3.10.egg-info" TYPE DIRECTORY FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_python/rqt-gui/rqt-gui.egg-info/")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/rqt-gui" TYPE DIRECTORY FILES "/home/laptopuser/ros2_dev/src/rqt-gui/src/rqt-gui/" REGEX "/[^/]*\\.pyc$" EXCLUDE REGEX "/\\_\\_pycache\\_\\_$" EXCLUDE)
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(
+        COMMAND
+        "/usr/bin/python3.10" "-m" "compileall"
+        "/home/laptopuser/ros2_dev/install/rqt-gui/local/lib/python3.10/dist-packages/rqt-gui"
+      )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/home/laptopuser/ros2_dev/src/rqt-gui/plugin.xml")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE DIRECTORY FILES "/home/laptopuser/ros2_dev/src/rqt-gui/resource")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/rqt-gui" TYPE PROGRAM FILES "/home/laptopuser/ros2_dev/src/rqt-gui/scripts/rqt_tsurai")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/rqt-gui")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/rqt-gui")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -55,7 +91,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui/environment" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui/environment" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -63,42 +99,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui/environment" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui/environment" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/root/ros2_ws/build/rqt-gui/ament_cmake_index/share/ament_index/resource_index/packages/rqt-gui")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_index/share/ament_index/resource_index/packages/rqt-gui")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui/cmake" TYPE FILE FILES
-    "/root/ros2_ws/build/rqt-gui/ament_cmake_core/rqt-guiConfig.cmake"
-    "/root/ros2_ws/build/rqt-gui/ament_cmake_core/rqt-guiConfig-version.cmake"
+    "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_core/rqt-guiConfig.cmake"
+    "/home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_core/rqt-guiConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/root/ros2_ws/src/rqt-gui/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rqt-gui" TYPE FILE FILES "/home/laptopuser/ros2_dev/src/rqt-gui/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -109,5 +145,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/ros2_ws/build/rqt-gui/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/laptopuser/ros2_dev/build/rqt-gui/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

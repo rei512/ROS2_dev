@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros2_ws/src/rqt-gui
+CMAKE_SOURCE_DIR = /home/laptopuser/ros2_dev/src/rqt-gui
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros2_ws/build/rqt-gui
+CMAKE_BINARY_DIR = /home/laptopuser/ros2_dev/build/rqt-gui
 
 # Utility rule file for rqt-gui_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/rqt-gui_uninstall.dir/compiler_depend.make
 include CMakeFiles/rqt-gui_uninstall.dir/progress.make
 
 CMakeFiles/rqt-gui_uninstall:
-	/usr/bin/cmake -P /root/ros2_ws/build/rqt-gui/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/laptopuser/ros2_dev/build/rqt-gui/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 rqt-gui_uninstall: CMakeFiles/rqt-gui_uninstall
 rqt-gui_uninstall: CMakeFiles/rqt-gui_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/rqt-gui_uninstall.dir/clean:
 .PHONY : CMakeFiles/rqt-gui_uninstall.dir/clean
 
 CMakeFiles/rqt-gui_uninstall.dir/depend:
-	cd /root/ros2_ws/build/rqt-gui && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ros2_ws/src/rqt-gui /root/ros2_ws/src/rqt-gui /root/ros2_ws/build/rqt-gui /root/ros2_ws/build/rqt-gui /root/ros2_ws/build/rqt-gui/CMakeFiles/rqt-gui_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/laptopuser/ros2_dev/build/rqt-gui && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/laptopuser/ros2_dev/src/rqt-gui /home/laptopuser/ros2_dev/src/rqt-gui /home/laptopuser/ros2_dev/build/rqt-gui /home/laptopuser/ros2_dev/build/rqt-gui /home/laptopuser/ros2_dev/build/rqt-gui/CMakeFiles/rqt-gui_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rqt-gui_uninstall.dir/depend
 

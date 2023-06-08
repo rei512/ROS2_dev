@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ros2_ws/src/rqt-gui
+CMAKE_SOURCE_DIR = /home/laptopuser/ros2_dev/src/rqt-gui
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ros2_ws/build/rqt-gui
+CMAKE_BINARY_DIR = /home/laptopuser/ros2_dev/build/rqt-gui
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/ros2_ws/build/rqt-gui/CMakeFiles /root/ros2_ws/build/rqt-gui//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/laptopuser/ros2_dev/build/rqt-gui/CMakeFiles /home/laptopuser/ros2_dev/build/rqt-gui//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/ros2_ws/build/rqt-gui/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/laptopuser/ros2_dev/build/rqt-gui/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -197,6 +197,32 @@ rqt-gui_uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rqt-gui_uninstall.dir/build.make CMakeFiles/rqt-gui_uninstall.dir/build
 .PHONY : rqt-gui_uninstall/fast
 
+#=============================================================================
+# Target rules for targets named ament_cmake_python_copy_rqt-gui
+
+# Build rule for target.
+ament_cmake_python_copy_rqt-gui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_copy_rqt-gui
+.PHONY : ament_cmake_python_copy_rqt-gui
+
+# fast build rule for target.
+ament_cmake_python_copy_rqt-gui/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_copy_rqt-gui.dir/build.make CMakeFiles/ament_cmake_python_copy_rqt-gui.dir/build
+.PHONY : ament_cmake_python_copy_rqt-gui/fast
+
+#=============================================================================
+# Target rules for targets named ament_cmake_python_build_rqt-gui_egg
+
+# Build rule for target.
+ament_cmake_python_build_rqt-gui_egg: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_build_rqt-gui_egg
+.PHONY : ament_cmake_python_build_rqt-gui_egg
+
+# fast build rule for target.
+ament_cmake_python_build_rqt-gui_egg/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_build_rqt-gui_egg.dir/build.make CMakeFiles/ament_cmake_python_build_rqt-gui_egg.dir/build
+.PHONY : ament_cmake_python_build_rqt-gui_egg/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,6 +236,8 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... ament_cmake_python_build_rqt-gui_egg"
+	@echo "... ament_cmake_python_copy_rqt-gui"
 	@echo "... rqt-gui_uninstall"
 	@echo "... uninstall"
 .PHONY : help
