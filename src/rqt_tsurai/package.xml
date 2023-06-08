@@ -4,7 +4,7 @@
   <name>rqt_tsurai</name>
   <version>0.0.0</version>
   <description>rqt_tsurai provides a GUI plugin for displaying TSURAI.</description>
-  <maintainer email="m20004@g.metro-cit.ac.jp">laptopuser</maintainer>
+  <maintainer email="macakasit@gmail.com">akshota</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
@@ -15,8 +15,6 @@
   <exec_depend>rqt_gui</exec_depend>
   <exec_depend>rqt_gui_py</exec_depend>
   <exec_depend>rqt_py_common</exec_depend>
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <!-- <architecture_independent/> -->
