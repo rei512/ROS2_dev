@@ -20,8 +20,8 @@
   <test_depend>ament_lint_common</test_depend>
 
   <export>
+    <!-- <architecture_independent/> -->
     <rqt_gui plugin="${prefix}/plugin.xml"/>
-  
     <build_type>ament_cmake</build_type>
   </export>
 </package>
