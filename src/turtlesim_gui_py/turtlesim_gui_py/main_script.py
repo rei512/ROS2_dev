@@ -8,20 +8,20 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from .window import Ui_MainWindow # 自動生成したファイルをインポート
 # ROS。
-import rospy
-from geometry_msgs.msg import Twist
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.Twist import Twist
 
 
-class Test(QDialog):
-	def __init__(self,parent=None):
-		# GUI。
-		super(Test, self).__init__(parent)
-		self.ui = Ui_Dialog()
+class mainWindow(QmainWindow, Ui_MainWindow, Node):
+	def __init__(self, parent=None):
+		# GUI部
+		super(mainWindow, self).__init__(parent)
 		self.ui.setupUi(self)
 
 		# ROS。pubの設定。
 		self.cmd_vel_Twist = Twist()
-		self.pub_cmd_vel = rospy.Publisher('/turtle1/cmd_vel',Twist,queue_size=10)
+		self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
 
 	def clickedForward(self):
 		"""
@@ -38,12 +38,18 @@ class Test(QDialog):
 		self.pub_cmd_vel.publish(self.cmd_vel_Twist)
 		self.cmd_vel_Twist.linear.x = 0
 
+def main(args=None):
+	rclpy.init('turtlesim_talker')
+	app = QApplication(sys.argv)
+	window = mainWindow()
+	window.show()
+	rclpy.spin(window)
+	sys.exit(app.exec_())
+	window.destroy_node()
+	rclpy.shutdown()
+
+
+
 
 if __name__ == '__main__':
-	rospy.init_node('turtlesim_talker')
-	app = QApplication(sys.argv)
-	window = Test()
-	window.show()
-	sys.exit(app.exec_())
-
-
+	main()
