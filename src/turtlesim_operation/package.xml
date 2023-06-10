@@ -6,7 +6,9 @@
   <description>TODO: Package description</description>
   <maintainer email="t_rei_512@yahoo.co.jp">root</maintainer>
   <license>TODO: License declaration</license>
-
+  
+  <depend>rospy</depend>
+  
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
