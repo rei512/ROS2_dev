@@ -14,95 +14,148 @@
    <string>mainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="rightButton">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>220</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Right</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="downButton">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>280</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Down</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="stopButton">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>220</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stop</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="forwardButton">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>160</y>
-      <width>51</width>
-      <height>51</height>
+      <x>360</x>
+      <y>20</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Forward</string>
+     <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="leftButton">
+   <widget class="QDial" name="dial">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>360</x>
       <y>220</y>
-      <width>51</width>
-      <height>51</height>
+      <width>111</width>
+      <height>111</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>Left</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="lTurnButton">
+   <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>160</y>
-      <width>51</width>
+      <x>30</x>
+      <y>80</y>
+      <width>121</width>
       <height>51</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>L Turn</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="rTurnButton">
+   <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>160</y>
-      <width>51</width>
-      <height>51</height>
+      <x>140</x>
+      <y>300</y>
+      <width>85</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>R Turn</string>
+     <string>CheckBox</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>260</y>
+      <width>99</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>RadioButton</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="verticalSlider">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>150</y>
+      <width>16</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>190</y>
+      <width>43</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>150</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>150</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>280</y>
+      <width>99</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>RadioButton</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>320</y>
+      <width>85</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CheckBox</string>
     </property>
    </widget>
   </widget>
@@ -115,131 +168,202 @@
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionss"/>
+    <addaction name="separator"/>
+    <addaction name="actiondff"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menu_View"/>
+   <addaction name="menu_help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionaaa">
+   <property name="text">
+    <string>aaa</string>
+   </property>
+  </action>
+  <action name="actionss">
+   <property name="text">
+    <string>ss</string>
+   </property>
+  </action>
+  <action name="actiondff">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit application</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="statusTip">
+    <string>About us</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>downButton</sender>
-   <signal>clicked()</signal>
-   <receiver>mainWindow</receiver>
-   <slot>clickedBack()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>379</x>
-     <y>327</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>313</x>
-     <y>350</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leftButton</sender>
-   <signal>clicked()</signal>
-   <receiver>mainWindow</receiver>
-   <slot>clickedLeft()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>325</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>311</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lTurnButton</sender>
-   <signal>clicked()</signal>
-   <receiver>mainWindow</receiver>
-   <slot>clickedLTurn()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>308</x>
-     <y>215</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>255</x>
-     <y>215</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>rightButton</sender>
-   <signal>clicked()</signal>
-   <receiver>mainWindow</receiver>
-   <slot>clickedRight()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>436</x>
-     <y>277</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>439</x>
-     <y>328</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>rTurnButton</sender>
-   <signal>clicked()</signal>
-   <receiver>mainWindow</receiver>
-   <slot>clickedRTurn()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>434</x>
-     <y>205</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>437</x>
-     <y>156</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>stopButton</sender>
-   <signal>clicked()</signal>
-   <receiver>mainWindow</receiver>
-   <slot>clickedStop()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>380</x>
-     <y>266</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>339</x>
-     <y>314</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>forwardButton</sender>
    <signal>clicked()</signal>
    <receiver>mainWindow</receiver>
-   <slot>clickedForward()</slot>
+   <slot>clickedInterrupt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>396</x>
-     <y>213</y>
+     <x>406</x>
+     <y>60</y>
     </hint>
     <hint type="destinationlabel">
+     <x>326</x>
+     <y>46</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>mainWindow</receiver>
+   <slot>valueChangedInterrupt(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>331</x>
+     <y>257</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>253</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>380</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
      <x>330</x>
-     <y>153</y>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>397</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>verticalSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>432</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>212</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>dial</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>338</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>416</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>verticalSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>278</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>336</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>mainWindow</receiver>
+   <slot>checkBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>332</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>330</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <slot>clickedBack()</slot>
-  <slot>clickedForward()</slot>
-  <slot>clickedLeft()</slot>
-  <slot>clickedRight()</slot>
-  <slot>clickedLTurn()</slot>
-  <slot>clickedRTurn()</slot>
-  <slot>clickedStop()</slot>
+  <slot>valueChangedInterrupt(int)</slot>
+  <slot>clickedInterrupt()</slot>
+  <slot>checkBox()</slot>
  </slots>
 </ui>
