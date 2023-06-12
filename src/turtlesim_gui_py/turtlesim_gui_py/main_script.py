@@ -18,36 +18,27 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 		super(mainWindow, self).__init__(parent)
 		self.setupUi(self)
 
+		self.node = Node('Qt_test_node')
+		self.publisher_ = self.node.create_publisher(Twist, '/turtle1/cmd_vel', 10)
+		self.cmd_vel_Twist = Twist()
+
 	def clickedFoward(self):
-		rosNode.moveFoward()
+		self.cmd_vel_Twist.linear.x = 1.0 # 1[m/s]で直進
+		self.publisher_.publish(self.cmd_vel_Twist)
+		self.cmd_vel_Twist.linear.x = 0.0
 
 	def clickedBack(self):
-		rosNode.moveBack()
+		self.cmd_vel_Twist.linear.x = -1.0
+		self.publisher_.publish(self.cmd_vel_Twist)
+		self.cmd_vel_Twist.linear.x = 0.0
 
 
-class rosNode(Node):
-	def __init__(self):
-		super().__init__('turtle_gui')
-		self.cmd_vel_Twist = Twist()
-		self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
-
-	def moveFoward(self):
-		self.cmd_vel_Twist.linear.x = 1 # 1[m/s]で直進
-		self.pub_cmd_vel.publish(self.cmd_vel_Twist)
-		self.cmd_vel_Twist.linear.x = 0
-
-
-	def moveBack(self):
-		self.cmd_vel_Twist.linear.x = -1
-		self.pub_cmd_vel.publish(self.cmd_vel_Twist)
-		self.cmd_vel_Twist.linear.x = 0
 
 def main(args=None):
 	rclpy.init(args=args)
 	app = QApplication(sys.argv)
 	window = mainWindow()
 	window.show()
-	rclpy.spin(mainWindow)
 	sys.exit(app.exec_())
 	#window.destroy_node()
 	#rclpy.shutdown()
