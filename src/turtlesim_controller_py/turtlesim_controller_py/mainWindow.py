@@ -48,12 +48,6 @@ class Ui_mainWindow(object):
         mainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(mainWindow)
-        self.downButton.clicked.connect(mainWindow.clickedBack) # type: ignore
-        self.leftButton.clicked.connect(mainWindow.clickedLeft) # type: ignore
-        self.lTurnButton.clicked.connect(mainWindow.clickedLTurn) # type: ignore
-        self.rightButton.clicked.connect(mainWindow.clickedRight) # type: ignore
-        self.rTurnButton.clicked.connect(mainWindow.clickedRTurn) # type: ignore
-        self.stopButton.clicked.connect(mainWindow.clickedStop) # type: ignore
         self.forwardButton.clicked.connect(mainWindow.clickedForward) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 

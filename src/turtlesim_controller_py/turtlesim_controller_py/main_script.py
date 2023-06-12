@@ -57,7 +57,7 @@ class MainWindow(QMainWindow, Ui_mainWindow):
 		return exitAction
 
 
-	def clickedInterrupt(self):
+	def clickedForward(self):
 		self.Twist.linear.x = 1.0 # 1[m/s]で直進
 		self.pub.publish(self.Twist)
 		self.Twist.linear.x = 0.0
