@@ -9,18 +9,18 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
+find_package(custom_messages REQUIRED)	#custom message
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
 
-add_executable(talker src/main_script.cpp)
-ament_target_dependencies(talker rclcpp std_msgs)
+add_executable(main_script src/main_script.cpp)
+ament_target_dependencies(main_script rclcpp custom_messages)
 
 install(TARGETS
-	talker
+	main_script
 	DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -7,8 +7,10 @@
   <maintainer email="m20004@g.metro-cit.ac.jp">rei_512_</maintainer>
   <license>MIT</license>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>\
 
+  <depend>custom_messages</depend>
+ 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
