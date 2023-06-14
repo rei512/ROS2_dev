@@ -5,7 +5,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 //#include "std_msgs/msg/string.hpp"
-#include "custom_messages/msg/canmsg.hpp"	//custom message
+#include "custom_messages/msg/can_msg.hpp"	//custom message
 
 using namespace std::chrono_literals;
 
@@ -20,7 +20,7 @@ class rosNode : public rclcpp::Node
     {
       publisher_ = this->create_publisher<custom_messages::msg::CanMsg>("/can_rx", 10);
       timer_ = this->create_wall_timer(
-      500ms, std::bind(&MinimalPublisher::timer_callback, this));
+      500ms, std::bind(&rosNode::timer_callback, this));
     }
 
   private:
@@ -40,7 +40,7 @@ class rosNode : public rclcpp::Node
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<MinimalPublisher>());
+  rclcpp::spin(std::make_shared<rosNode>());
   rclcpp::shutdown();
   return 0;
 }
