@@ -3,6 +3,9 @@
 #include <memory>
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <ranges>
+#include <vector>
 
 #include "rclcpp/rclcpp.hpp"
 //#include "std_msgs/msg/string.hpp"
@@ -19,7 +22,10 @@ class rosNode: public rclcpp::Node {
 	: Node("canCommuNode"), count_(0)
 	{
 	  publisher_ = this->create_publisher<custom_messages::msg::CanMsg>("/can_rx", 10);
-	  //can.dlc = 8;
+	  can.dlc = 8;
+	  for(int i=0;i<8;i++) {
+		can.data.push_back(0);
+	  }
 	  //RCLCPP_INFO(this->get_logger(), "Publishing: 'id:%d dlc:%d'", can.id, can.dlc);
 	  //timer_ = this->create_wall_timer(
 	  //500ms, std::bind(&rosNode::timer_callback, this));
@@ -28,53 +34,93 @@ class rosNode: public rclcpp::Node {
 	void loop() {
 		while(1) {
 			//std::cout << this << std::endl;
-			std::printf("%dch frametype:%d Address:%d DLC:%d\ndata:", can.channel, can.frametype, can.id, can.dlc);
-			for(int i=0;i < can.dlc;i++) {
-				std::cout  << " "<< can.data[i];
-			}
-			std::cout << std::endl;
 			std::string input;
-			std::cout << "> ";
-			std::cin >> input;
-			if(input[0] != '!') {
-				for(int i=0;i<8;i++) {
-					can.data[i] = input[i];
-				}
-				publish();
-				//RCLCPP_INFO(this->get_logger(), "Publishing: 'ch:%d frame:%d id:%d dlc:%d data:%s'", can.channel, can.frametype, can.id, can.dlc, &can.data[0]);
+			std::string tmp;
+			std::vector<std::string> item;
+			int value;
+
+			std::printf("\n\n%dch frametype:%d Address:%d DLC:%d\ndata:", can.channel, can.frametype, can.id, can.dlc);
+			for(int i=0;i < can.dlc;i++) {
+				value =can.data[i];
+				std::cout  << " "<< value;
 			}
 
-			if(!input.compare(1, 2, "CH")) {
-				if(input[4] == '0') {
-					can.channel = true;
-				} else if(input[4] == '1') {
-					can.channel = false;
-				} else {
-					printf("invalid action. please input 0/1");
-				}
+			std::cout << "\n> ";
+
+			getline(std::cin, input);
+
+			std::stringstream ss;
+
+			ss << input;
+
+			while(std::getline(ss, tmp, ' ')) {
+				item.push_back(tmp);
 			}
 
-			if(!input.compare(1, 11, "frametype")) {
-				if(input[12] == '0') {
-					can.frametype = true;
-				} else if(input[12] == '1') {
-					can.frametype = false;
-				} else {
-					printf("invalid action. please input 0/1");
-				}
-			}
-			if(!input.compare(1, 2, "Address")) {
-				can.id = std::stoi(input.substr(9));
+			if(item.empty()) {
+				std::cout << "input data is empty!" << std::endl;
+				continue;
 			}
 
-			if(!input.compare(1, 2, "DLC")) {
-				can.dlc = std::stoi(input.substr(5));
-			}
-
-			if(!input.compare(1, 4, "exit")) {
-				std::cout << "exit" << std::endl;
+			if(item[0] == "!exit") {
 				return;
 			}
+
+			else if(item[0] == "!SEND") {
+				publish();
+				std::cout << "Published!" << std::endl;
+			}
+
+			else if(item[0] == "!H" || item[0] == "!HELP") {
+				std::cout << "Here is the !HELP messages\n!CH \t- channel select 0/1	\n!FT \t- frametype select 0(data)/1(rtr)	\n!ADD\t- Address select 0 - 2047(0x7FF)	\n!DLC\t- Data Length Code 0 - 8	\n!SEND\t- Publish messages	\n!exit\t- close application(!!! DO NOT USE Ctrl+C !!!)	\n" << std::endl;
+			}
+
+			else if(item[0] == "!CH") {
+				if(item.size() == 2 && item[1] == "1") {
+					can.channel = true;
+				}
+				else if(item.size() == 2 && item[1] == "0") {
+					can.channel = false;
+				}
+				else {
+					std::cout << "invalid value or segment. please input 0/1" << std::endl;
+				}
+			}
+
+			else if(item[0] == "!FT") {
+				if(item.size() == 2 && item[1] == "1") {
+					can.frametype = true;
+				}
+				else if(item.size() == 2 && item[1] == "0") {
+					can.frametype = false;
+				}
+				else {
+					std::cout << "invalid value or segment. please input 0/1" << std::endl;
+				}
+			}
+
+			else if(item.size() == 2 && item[0] == "!ADD") {
+				can.id = std::stoi(item[1]);
+			}
+
+			else if(item.size() == 2 && item[0] == "!DLC" && std::stoi(item[1])  >= 0 && std::stoi(item[1]) <= 8) {
+				can.dlc = (char)std::stoi(item[1]);
+			}
+
+			else if(item.size() == can.dlc) {
+				for(int i=0;i<can.dlc;i++) {
+					can.data[i] = (char)std::stoi(item[i]);
+				} 
+			}
+
+			else {
+				std::cout << "invalid value,segment or command. check command !H(!HELP)" << std::endl;
+			}
+
+			//for(auto &s : item) {
+			//	std::cout << s << std::endl;
+			//}
+
 		}
 	}
 

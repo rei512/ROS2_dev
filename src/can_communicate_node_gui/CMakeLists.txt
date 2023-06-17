@@ -19,6 +19,8 @@ find_package(custom_messages REQUIRED)	#custom message
 add_executable(main_script src/main_script.cpp)
 ament_target_dependencies(main_script rclcpp custom_messages)
 
+#target_compile_features(main_script PUBLIC cxx_std_20)
+
 install(TARGETS
 	main_script
 	DESTINATION lib/${PROJECT_NAME}
