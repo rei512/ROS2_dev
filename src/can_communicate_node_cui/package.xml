@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>can_communicate_node_gui</name>
+  <name>can_communicate_node_cui</name>
   <version>0.0.1</version>
   <description>CAN-ROS communication node package</description>
   <maintainer email="m20004@g.metro-cit.ac.jp">rei_512_</maintainer>
