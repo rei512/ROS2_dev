@@ -36,20 +36,39 @@ class rosNode: public rclcpp::Node {
 			//std::cout << this << std::endl;
 			std::string input;
 			std::string tmp;
+			std::stringstream ss;
+			static bool hex = true;
 			std::vector<std::string> item;
 			int value;
 
-			std::printf("\n\n%dch frametype:%d Address:%d DLC:%d\ndata:", can.channel, can.frametype, can.id, can.dlc);
+			if(hex) {
+				ss << std::hex << can.id;
+				value = std::stoi(ss.str());
+				std::printf("\n\n%dch frametype:%d Address:0x%d DLC:%d\ndata:", can.channel, can.frametype, value, can.dlc);
+				ss.str("");
+				ss.clear(std::stringstream::goodbit);
+			} else {
+				std::printf("\n\n%dch frametype:%d Address:%d DLC:%d\ndata:", can.channel, can.frametype, can.id, can.dlc);
+			}
+			
+			
+			
 			for(int i=0;i < can.dlc;i++) {
 				value =can.data[i];
-				std::cout  << " "<< value;
+
+				if(hex) {
+					ss << std::hex << value;
+					std::cout  << " 0x"<< ss.str();
+					ss.str("");
+					ss.clear(std::stringstream::goodbit);
+				} else {
+					std::cout  << " "<< value;
+				}
 			}
 
 			std::cout << "\n> ";
 
 			getline(std::cin, input);
-
-			std::stringstream ss;
 
 			ss << input;
 
@@ -66,13 +85,25 @@ class rosNode: public rclcpp::Node {
 				return;
 			}
 
+			if(item[0] == "!HEX") {
+				if(item.size() == 2 && (item[1] == "TRUE" || item[1] == "true")) {
+					hex = true;
+				}
+				else if(item.size() == 2 && (item[1] == "FALSE" || item[1] == "false")) {
+					hex = false;
+				}
+				else {
+					std::cout << "invalid value or segment. please input TRUE/FALSE" << std::endl;
+				}
+			}
+
 			else if(item[0] == "!SEND") {
 				publish();
 				std::cout << "Published!" << std::endl;
 			}
 
 			else if(item[0] == "!H" || item[0] == "!HELP") {
-				std::cout << "Here is the !HELP messages\n!CH \t- channel select 0/1	\n!FT \t- frametype select 0(data)/1(rtr)	\n!ADD\t- Address select 0 - 2047(0x7FF)	\n!DLC\t- Data Length Code 0 - 8	\n!SEND\t- Publish messages	\n!exit\t- close application(!!! DO NOT USE Ctrl+C !!!)	\n" << std::endl;
+				std::cout << "Here is the !HELP messages\n!CH \t- channel select 0/1	\n!FT \t- frametype select 0(data)/1(rtr)	\n!ADD\t- Address select 0 - 2047(0x7FF)	\n!DLC\t- Data Length Code 0 - 8	\n!SEND\t- Publish messages	\n!HEX\t- Show value in hexadecimal, else decimal TRUE/FALSE 	\n!exit\t- close application(!!! DO NOT USE Ctrl+C !!!)	\n" << std::endl;
 			}
 
 			else if(item[0] == "!CH") {
@@ -99,17 +130,17 @@ class rosNode: public rclcpp::Node {
 				}
 			}
 
-			else if(item.size() == 2 && item[0] == "!ADD") {
-				can.id = std::stoi(item[1]);
+			else if(item.size() == 2 && item[0] == "!ADD" && std::stod(item[1])  >= 0 && std::stod(item[1]) < 2048) {
+				can.id = (int)std::stod(item[1]);
 			}
 
-			else if(item.size() == 2 && item[0] == "!DLC" && std::stoi(item[1])  >= 0 && std::stoi(item[1]) <= 8) {
-				can.dlc = (char)std::stoi(item[1]);
+			else if(item.size() == 2 && item[0] == "!DLC" && std::stod(item[1])  >= 0 && std::stod(item[1]) <= 8) {
+				can.dlc = (char)std::stod(item[1]);
 			}
 
 			else if(item.size() == can.dlc) {
 				for(int i=0;i<can.dlc;i++) {
-					can.data[i] = (char)std::stoi(item[i]);
+					can.data[i] = (char)std::stod(item[i]);
 				} 
 			}
 
