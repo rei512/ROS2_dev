@@ -8,23 +8,22 @@ from .mainWindow import Ui_mainWindow
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-
+from custom_messages.msg import CanMsg
 class MainWindow(QMainWindow, Ui_mainWindow):
 	def __init__(self, parent=None):
 		super(MainWindow, self).__init__(parent)
-		self.float_topic_name = '/micro_ros_arduino_node_publisher'
+		self.float_topic_name = '/can_gui'
 		self.ui = Ui_mainWindow()
 		self.ui.setupUi(self)
 		# ROS2 init
 		rclpy.init(args=None)
 		self.node = Node('Qt_view_node')
-		self.Twist = Twist()
-		self.pub = self.node.create_publisher(Twist, '/turtle1/cmd_vel', 10)
+		self.CanMsg = CanMsg()
+		self.pub = self.node.create_publisher(CanMsg, '/can_rx', 10)
 
 	def clickedInterrapt(self):
-		self.Twist.linear.x = 1.0 # 1[m/s]で直進
-		self.pub.publish(self.Twist)
-		self.Twist.linear.x = 0.0
+		self.CanMsg.id += 1 # 1[m/s]で直進
+		self.pub.publish(self.CanMsg)
 
 		self.node.get_logger().info('Interraptted')
 
