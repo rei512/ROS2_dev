@@ -19,8 +19,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		rclpy.init(args=None)
 		self.node = Node('Qt_view_node')
 		self.CanMsg = CanMsg()
+		self.input = ""
 		self.pub = self.node.create_publisher(CanMsg, '/can_rx', 10)
-
+		for i in range(8):
+			self.CanMsg.data.append(0)
 		#self.node.get_logger().info('Interraptted')
 
 	def ADD(self, id):
@@ -33,14 +35,39 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.CanMsg.channel = bool(CH)
 
 	def DLC(self, DLC):
-		self.CanMsg.dlc = bytes(DLC)
+		s = str(DLC)
+		b = bytes(s, 'utf-8')
+		self.CanMsg.dlc = b
 
 	def DATA(self, input: str):
-		for i in range(self.CanMsg.dlc):
-			self.CanMsg.data[i] = input[i]
+		self.input = input 
+		#tmp = int.from_bytes(self.CanMsg.dlc, byteorder='little')
+		#if(tmp > 0):
+		#	tmp -= 48
+		
+		#print(tmp)
+		#for i in range(8):
+			#s = input[i]
+		#	if(i < tmp):
+		#		string = input[i]
+		#		self.CanMsg.data[i] = string.encode('utf-8')
+		#	else:
+		#		string = "0"
+		#		self.CanMsg.data[i] = string.encode('utf-8')
+
 
 	def Sent(self):
-		self.pub.publish(self.CanMsg)
+		#hex_list = input.split()
+		#byte_array = bytes(int(hex_str, 16) for hex_str in hex_list)
+
+
+		#if self.CanMsg.frametype :
+		#	self.CanMsg.data = bytes('', 'utf-8')
+		#else :
+		#	for i in range(int(self.CanMsg.dlc)):
+		#		self.CanMsg.data = byte_array[i]
+		self.node.get_logger().info(input)
+		#self.pub.publish(self.CanMsg)
 
 def main():
 	app = QApplication(sys.argv)
