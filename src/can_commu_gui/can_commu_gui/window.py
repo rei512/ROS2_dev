@@ -59,6 +59,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.label_2)
         self.spinBox_2 = QtWidgets.QSpinBox(self.verticalLayoutWidget)
         self.spinBox_2.setToolTip("")
+        self.spinBox_2.setMaximum(8)
         self.spinBox_2.setObjectName("spinBox_2")
         self.horizontalLayout_2.addWidget(self.spinBox_2)
         self.lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
